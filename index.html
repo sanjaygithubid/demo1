@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax-example</title>
+
+  <script>
+    function bodyClick(){
+      var http = new XMLHttpRequest();
+      // its work to configure on application from server data to my application page is in put in path of open() method of work. get the data from the sever file.
+      http.open("GET","../data/help.txt" , true)
+      http.send();
+
+      // here we want to know to that function is ready to state change.
+
+      http.onreadystatechange = function(){
+         if(http.readyState===4){
+          // document.write(http.responseText);  its for next page to display.
+          document.getElementById("container").innerHTML=http.responseText;
+         }
+      }
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+  <button onclick="bodyClick()">Load Page</button>
+
+
+  <div id="container">
+
+
+  </div>
+</body>
+
+</html>
